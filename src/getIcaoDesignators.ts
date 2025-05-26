@@ -1,7 +1,7 @@
 import puppeteer from 'puppeteer';
 import * as fs from 'fs';
 import * as path from 'path';
-import { ICAODesignation } from './types/icao';
+import { ICAODesignation } from './icao';
 
 export async function getICAODesignators(): Promise<ICAODesignation[]> {
 	const url = 'https://en.wikipedia.org/wiki/List_of_aircraft_type_designators';

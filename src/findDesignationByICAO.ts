@@ -1,6 +1,6 @@
 import * as fs from 'fs';
 import * as path from 'path';
-import { ICAODesignation } from './types/icao';
+import { ICAODesignation } from './icao';
 
 const dataFilePath = path.join(__dirname, 'data', 'wikiDesignatorData.json');
 
