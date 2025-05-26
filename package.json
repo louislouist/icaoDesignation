@@ -1,0 +1,29 @@
+{
+  "name": "icao-designation",
+  "version": "1.0.0",
+  "main": "index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "node dist/test.js",
+    "dev": "tsc --watch",
+    "fetch-data": "node dist/getIcaoWikiData.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/louislouist/icaoDesignation"
+  },
+  "keywords": [
+    "aircraft",
+    "typescript"
+  ],
+  "author": "Louis Louis",
+  "license": "MIT",
+  "description": "get icao designation information",
+  "devDependencies": {
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "puppeteer": "^24.9.0"
+  }
+}

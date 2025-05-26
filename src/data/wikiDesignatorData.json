@@ -1,0 +1,14 @@
+[
+	{
+		"icaoCode": "A20N",
+		"iataCode": "32N",
+		"model": "Airbus A320neo",
+		"modelLink": "https://en.wikipedia.org/wiki/Airbus_A320neo"
+	},
+	{
+		"icaoCode": "B39M",
+		"iataCode": "7M9",
+		"model": "Boeing 737 MAX 9",
+		"modelLink": "https://en.wikipedia.org/wiki/Boeing_737_MAX#737_MAX_9"
+	}
+]
