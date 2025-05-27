@@ -1,6 +1,7 @@
 import * as fs from 'fs';
 import * as path from 'path';
-import { ICAODesignation } from './icao';
+import { ICAODesignation, ICAODesignationSchema } from './icao';
+import { z } from 'zod';
 
 const dataFilePath = path.join(__dirname, 'data', 'wikiDesignatorData.json');
 
@@ -11,9 +12,14 @@ export function findDesignationByICAO(icaoCode: string): ICAODesignation | null 
 	}
 
 	const fileContent = fs.readFileSync(dataFilePath, 'utf-8');
-	const data: ICAODesignation[] = JSON.parse(fileContent);
 
-	const match = data.find(d => d.icaoCode.toLowerCase() === icaoCode.toLowerCase());
+	try {
+		const data = z.array(ICAODesignationSchema).parse(JSON.parse(fileContent));
 
-	return match || null;
+		const match = data.find(d => d.icaoCode.toLowerCase() === icaoCode.toLowerCase());
+		return match || null;
+	} catch (e) {
+		console.error('Invalid JSON structure or parsing error:', e);
+		return null;
+	}
 }
