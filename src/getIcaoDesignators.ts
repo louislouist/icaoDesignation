@@ -5,7 +5,14 @@ import { ICAODesignation } from './icao';
 
 export async function getICAODesignators(): Promise<ICAODesignation[]> {
 	const url = 'https://en.wikipedia.org/wiki/List_of_aircraft_type_designators';
-	const browser = await puppeteer.launch();
+	const chromiumPath = process.platform === 'linux' && process.arch === 'arm64'
+		? '/usr/bin/chromium-browser'
+		: undefined;
+	const browser = await puppeteer.launch({
+		executablePath: chromiumPath,
+		headless: true,
+		args: ['--no-sandbox', '--disable-setuid-sandbox'],
+	});
 	const page = await browser.newPage();
 	await page.goto(url, { waitUntil: 'domcontentloaded' });
 
